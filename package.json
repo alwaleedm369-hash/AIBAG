@@ -1,0 +1,53 @@
+{
+  "name": "mshkur-os",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:web": "vite",
+    "build": "npm run typecheck && vite build",
+    "start": "node server/index.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/ad-copy.test.mjs tests/api.test.mjs tests/engine.test.mjs tests/image-crop-geometry.test.mjs tests/micro-saas.test.mjs tests/mshkur-image-math.test.mjs tests/plate-blur-sharp.test.mjs tests/skills-contract.test.mjs tests/whatsapp-share.test.mjs tests/locale.test.mjs tests/vehicle-image-engine.test.mjs tests/vehicle-batch-pipeline.test.mjs tests/smart-graph.test.mjs tests/smart-graph-sqlite.test.mjs",
+    "test:unit": "node --test tests/mshkur-image-math.test.mjs tests/skills-contract.test.mjs tests/image-crop-geometry.test.mjs tests/whatsapp-share.test.mjs",
+    "check": "npm test && npm run build",
+    "check:env": "node scripts/check-env.mjs",
+    "db:check": "node scripts/db-check.mjs",
+    "postinstall": "node scripts/copy-onnx-wasm.mjs || true",
+    "mcp:stdio": "node server/mcp/index.mjs",
+    "mcp:identities": "node scripts/list-mcp-identities.mjs",
+    "backup": "node scripts/backup.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-arabic": "^5.2.6",
+    "@vitejs/plugin-react": "^4.3.4",
+    "better-sqlite3": "^13.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "0.33.5",
+    "vite": "^6.0.7",
+    "vite-plugin-pwa": "^2.0.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "typescript": "~5.7.2"
+  },
+  "optionalDependencies": {
+    "@bg0/browser": "0.1.1",
+    "@huggingface/transformers": "4.3.0"
+  }
+}
